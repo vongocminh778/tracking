@@ -48,7 +48,7 @@ public:
     virtual cf_tracking::CfTracker* parseTrackerParas(TCLAP::CmdLine& cmd, int argc, const char** argv)
     {
         cf_tracking::KcfParameters paras;
-        TCLAP::SwitchArg debugOutput("v", "debug", "Output Debug info!", cmd, false);
+        TCLAP::SwitchArg debugOutput("v", "debug", "Output Debug info!", cmd, true);
         TCLAP::SwitchArg originalVersion("", "original_version", "Parameters and performance as close to the KCF VOT version as possible.", cmd, false);
         TCLAP::SwitchArg originalParametersWithScaleFilter("", "original_parameters_scale_filter", "KCF VOT version parameters with DSST scale filter.", cmd, false);
         TCLAP::ValueArg<int> templateSize("", "para_template_size", "template size", false, paras.templateSize, "integer", cmd);
@@ -109,7 +109,7 @@ public:
             paras.cellSize = 4;
             paras.pixelPadding = 0;
 
-            paras.enableTrackingLossDetection = false;
+            paras.enableTrackingLossDetection = true;
 
             if (originalParametersWithScaleFilter.getValue())
             {

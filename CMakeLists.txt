@@ -72,6 +72,7 @@ include_directories(${CF_TCLAP_DIR}
 
 include_directories(src/cf_libs/kcf
                     src/cf_libs/dsst
+                    src/cf_libs/staple
                     src/cf_libs/common)
                     
 set(CF_PIOTR_SOURCES
@@ -120,4 +121,15 @@ add_executable(KCFcpp
     ${CF_MAIN_SOURCES}
     ${CF_LIB_COMMON_SOURCES})
 target_link_libraries(KCFcpp ${OpenCV_LIBS})
+
+add_executable(STAPLE_run
+        src/main/main_staple.cpp
+        src/cf_libs/staple/staple_debug.hpp
+        src/cf_libs/staple/colour_tracker.hpp
+        src/cf_libs/staple/colour_tracker.cpp
+        src/cf_libs/staple/staple_tracker.hpp
+        src/cf_libs/staple/staple_tracker.cpp
+        ${CF_MAIN_SOURCES}
+        ${CF_LIB_COMMON_SOURCES})
+target_link_libraries(STAPLE_run ${OpenCV_LIBS})
 

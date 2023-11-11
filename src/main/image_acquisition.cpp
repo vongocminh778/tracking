@@ -76,7 +76,7 @@ void ImageAcquisition::open(ImgAcqParas paras)
     else
     {
         if (_paras.sequencePath.empty())
-            _cvCap.open(_paras.device);
+            _cvCap.open("/home/minh/Documents/outputIR1.mp4");
         else
         {
             std::string sequenceExpansion =

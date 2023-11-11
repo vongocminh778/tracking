@@ -64,4 +64,29 @@ namespace cf_tracking
 
         cv::resize(source, dst, dsize, 0, 0, interpolationType);
     }
+
+    // mexResize got different results using different OpenCV, it's not trustable
+    // I found this bug by running vot2015/tunnel, it happened when frameno+1==22 after frameno+1==21
+    void mexResize(const cv::Mat &im, cv::Mat &output, cv::Size newsz, const char *method) {
+        int interpolation = cv::INTER_LINEAR;
+
+        cv::Size sz = im.size();
+
+        if(!strcmp(method, "antialias")){
+            interpolation = cv::INTER_AREA;
+        } else if (!strcmp(method, "linear")){
+            interpolation = cv::INTER_LINEAR;
+        } else if (!strcmp(method, "auto")){
+            if(newsz.width > sz.width){ // xxx
+                interpolation = cv::INTER_LINEAR;
+            }else{
+                interpolation = cv::INTER_AREA;
+            }
+        } else {
+            assert(0);
+            return;
+        }
+
+        resize(im, output, newsz, 0, 0, interpolation);
+    }
 }

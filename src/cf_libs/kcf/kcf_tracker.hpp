@@ -55,7 +55,7 @@ References:
 PAMI, 2015.
 
 [2] M. Danelljan, et al.,
-“Adaptive Color Attributes for Real-Time Visual Tracking,”
+ï¿½Adaptive Color Attributes for Real-Time Visual Tracking,ï¿½
 in Proc. CVPR, 2014.
 
 [3] M. Danelljan,
@@ -63,7 +63,7 @@ in Proc. CVPR, 2014.
 Proceedings of the British Machine Vision Conference BMVC, 2014.
 
 [4] D. Bolme, et al.,
-“Visual Object Tracking using Adaptive Correlation Filters,”
+ï¿½Visual Object Tracking using Adaptive Correlation Filters,ï¿½
 in Proc. CVPR, 2010.
 */
 
@@ -101,7 +101,7 @@ namespace cf_tracking
         int cellSize = 4;
         int pixelPadding = 0;
 
-        bool enableTrackingLossDetection = false;
+        bool enableTrackingLossDetection = true;
         double psrThreshold = 13.5;
         int psrPeakDel = 1;
 

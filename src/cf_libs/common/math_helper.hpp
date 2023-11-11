@@ -43,6 +43,7 @@ namespace cf_tracking
     void dftNoCcs(const cv::Mat& input, cv::Mat& out, int flags = 0);
     int mod(int dividend, int divisor);
     void depResize(const cv::Mat& source, cv::Mat& dst, const cv::Size& dsize);
+    void mexResize(const cv::Mat &im, cv::Mat &output, cv::Size newsz, const char *method);
 
     template<typename T>
     cv::Size_<T> sizeFloor(cv::Size_<T> size)
@@ -296,6 +297,7 @@ namespace cf_tracking
 
             copyMakeBorder(subWindow, subWindow, diffTopY, -diffBottomY,
                 diffTopX, -diffBottomX, cv::BORDER_REPLICATE);
+                // diffTopX, -diffBottomX, cv::BORDER_CONSTANT);
         }
 
         // this if can be true if the sub window
